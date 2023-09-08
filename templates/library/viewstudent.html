@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style media="screen">
+        table.redTable {
+            border: 2px solid #A40808;
+            background-color: #EEE7DB;
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "library/navbaradmin.html" %}
+    <br>
+    <br>
+    <h3 class="p-3 mb-2 bg-primary text-white" style='font-size: 50px;text-align:center;'>Student registered in Library
+        !</h3>
+
+    {% if students%}
+    <table class="redTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Enrollment</th>
+                <th>Branch</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <div class="links"></div>
+                </td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td>{{s.get_name}}</td>
+                <td>{{s.enrollment}}</td>
+                <td>{{s.branch}}</td>
+
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {%else%}
+    <h1> No Student Registered in Library</h1>
+    {%endif%}
+
+
+
+
+    {% include "library/footer.html" %}
+</body>
+
+</html>
